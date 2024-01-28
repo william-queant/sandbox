@@ -1,7 +1,24 @@
-function Greeting({ name }) {
-  return <h1>Hello, {name}</h1>;
-}
+import React, {useState} from 'react'
+import IncrementButton from './IncrementButton'
 
 export default function App() {
-  return <Greeting name="world" />
+  const [count, setCount] = useState(0)
+
+  const globalIncrement = () => setCount(currentState => currentState + 1)
+  const globalCount = () => count
+
+  const handleClick = e => {
+    e.preventDefault()
+    e.stopPropagation()
+
+    console.log(e.target.textContent)
+  }
+
+  return (
+    <>
+      <h1 onClick={handleClick}>Increments: {count}</h1>
+      <IncrementButton setter={globalIncrement} getter={globalCount} />
+      <IncrementButton setter={globalIncrement} getter={globalCount} />
+    </>
+  )
 }
