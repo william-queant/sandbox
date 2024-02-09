@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {battleShip} from './Battleship'
 import IncrementButton from './IncrementButton'
 
 export default function App() {
@@ -13,6 +14,8 @@ export default function App() {
 
     console.log(e.target.textContent)
   }
+
+  battleShip()
 
   return (
     <>
